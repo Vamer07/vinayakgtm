@@ -2,12 +2,52 @@
 <html>
 <head>
   <title>Thank You</title>
+
+  <!-- Google Tag Manager -->
+  <!-- SAME GTM HEAD CODE -->
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #f5f5f5;
+      padding: 50px;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: green;
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>✅ Thank You!</h1>
-  <p>Submission successful</p>
+  <!-- Google Tag Manager (noscript) -->
+  <!-- SAME GTM BODY CODE -->
+
+  <div class="box">
+    <h1>✅ Thank You!</h1>
+    <p id="product"></p>
+    <a href="index.html">← Back to Shop</a>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const product = params.get("product");
+
+    if (product) {
+      document.getElementById("product").innerText =
+        "You purchased: " + product;
+    }
+  </script>
 
 </body>
 </html>
