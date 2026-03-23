@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vinayak Tyre Store</title>
+
+  <!-- GTM HEAD HERE -->
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: #333;
+    }
+
+    header {
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+      color: white;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .products {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 30px;
+    }
+
+    .card {
+      background: white;
+      width: 260px;
+      margin: 15px;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    h3 {
+      margin: 10px 0;
+    }
+
+    .price {
+      color: #28a745;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    button {
+      background: linear-gradient(45deg, #ff7e00, #ff3d00);
+      border: none;
+      padding: 12px 18px;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(45deg, #ff3d00, #ff7e00);
+    }
+
+    footer {
+      text-align: center;
+      color: white;
+      padding: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- GTM BODY HERE -->
+
+  <header>
+    🛞 Vinayak Tyre Store
+  </header>
+
+  <div class="hero">
+    Premium Tyres for Every Journey 🚗
+  </div>
+
+  <div class="products">
+
+    <div class="card">
+      <img src="https://via.placeholder.com/250x150?text=MRF+Tyre">
+      <h3>MRF ZLX</h3>
+      <p class="price">₹4000</p>
+      <button onclick="buy('MRF ZLX')">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/250x150?text=CEAT+Tyre">
+      <h3>CEAT SecuraDrive</h3>
+      <p class="price">₹3500</p>
+      <button onclick="buy('CEAT')">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/250x150?text=Apollo+Tyre">
+      <h3>Apollo Alnac</h3>
+      <p class="price">₹3800</p>
+      <button onclick="buy('Apollo')">Buy Now</button>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 Vinayak Tyre Store
+  </footer>
+
+  <script>
+    function buy(product) {
+      window.location.href = "thankyou.html?product=" + product;
+    }
+  </script>
+
+</body>
+</html>
