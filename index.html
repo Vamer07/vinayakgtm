@@ -1,16 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GTM Practice</title>
+  <title>Vinayak Tyre Store</title>
+
+  <!-- Google Tag Manager -->
+  <!-- PASTE GTM HEAD CODE HERE -->
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      width: 250px;
+      margin: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .price {
+      font-size: 18px;
+      color: green;
+      margin: 10px 0;
+    }
+
+    button {
+      background: #ff6600;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #e65c00;
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>🚀 My GTM Test Site</h1>
+  <!-- Google Tag Manager (noscript) -->
+  <!-- PASTE GTM BODY CODE HERE -->
 
-  <button onclick="window.location.href='thankyou.html'">
-    Submit
-  </button>
+  <header>
+    <h1>🛞 Vinayak Tyre Store</h1>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2" />
+      <h2>MRF ZLX</h2>
+      <p class="price">₹4000</p>
+      <button onclick="buyNow('MRF ZLX')">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1615906655593-ad0386982a0f" />
+      <h2>CEAT SecuraDrive</h2>
+      <p class="price">₹3500</p>
+      <button onclick="buyNow('CEAT SecuraDrive')">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1583267746897-2cf415887172" />
+      <h2>Apollo Alnac</h2>
+      <p class="price">₹3800</p>
+      <button onclick="buyNow('Apollo Alnac')">Buy Now</button>
+    </div>
+
+  </div>
+
+  <script>
+    function buyNow(product) {
+      window.location.href = "thankyou.html?product=" + encodeURIComponent(product);
+    }
+  </script>
 
 </body>
 </html>
