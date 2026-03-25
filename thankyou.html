@@ -1,86 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Google Tag Manager -->
+  <title>Thank You</title>
+
+  <!-- GTM -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-NQ4BZQ53');</script>
-<!-- End Google Tag Manager -->
-  <title>Thank You</title>
 
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #dff0d8;
+}
 
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: linear-gradient(to right, #1e3c72, #2a5298);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .box {
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    }
-
-    h1 {
-      color: #28a745;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 18px;
-      margin: 10px 0;
-    }
-
-    a {
-      display: inline-block;
-      margin-top: 15px;
-      text-decoration: none;
-      background: #ff6600;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 6px;
-    }
-
-    a:hover {
-      background: #e65c00;
-    }
-  </style>
+.box {
+  margin-top: 100px;
+}
+</style>
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
+
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQ4BZQ53"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+height="0" width="0" style="display:none"></iframe></noscript>
 
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQ4BZQ53"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <div class="box">
-    <h1>✅ Order Successful!</h1>
-    <p id="product"></p>
-    <a href="index.html">← Continue Shopping</a>
-  </div>
-
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const product = params.get("product");
-
-    if (product) {
-      document.getElementById("product").innerText =
-        "You purchased: " + product;
-    }
-  </script>
+<div class="box">
+<h1>Thank You!</h1>
+<p>We will enquire soon.</p>
+</div>
 
 </body>
 </html>
