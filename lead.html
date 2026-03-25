@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lead Form</title>
+
+  <!-- GTM -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NQ4BZQ53');</script>
+
+<style>
+body {
+  font-family: Arial;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.form-box {
+  margin-top: 100px;
+  background: white;
+  padding: 30px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQ4BZQ53"
+height="0" width="0" style="display:none"></iframe></noscript>
+
+<div class="form-box">
+<h2>Enter Details</h2>
+
+<form onsubmit="submitForm(event)">
+<input type="text" id="name" placeholder="Name" required><br><br>
+<input type="email" id="email" placeholder="Email" required><br><br>
+<input type="tel" id="phone" placeholder="Phone" required><br><br>
+
+<button type="submit">Submit</button>
+</form>
+</div>
+
+<script>
+function getProduct(){
+  const params = new URLSearchParams(window.location.search);
+  return params.get("product");
+}
+
+function submitForm(e){
+  e.preventDefault();
+
+  const product = getProduct();
+
+  window.location.href = "thankyou.html?product=" + product;
+}
+</script>
+
+</body>
+</html>
