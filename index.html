@@ -1,119 +1,86 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Vinayak Tyre Store</title>
-
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NQ4BZQ53');</script>
-
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: linear-gradient(to right, #1e3c72, #2a5298);
-      color: #333;
-    }
-
-    header {
-      background: rgba(0,0,0,0.8);
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 50px 20px;
-      color: white;
-      font-size: 26px;
-      font-weight: bold;
-    }
-
-    .products {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 30px;
-    }
-
-    .card {
-      background: white;
-      width: 260px;
-      margin: 15px;
-      padding: 15px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .price {
-      color: #28a745;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    button {
-      background: linear-gradient(45deg, #ff7e00, #ff3d00);
-      border: none;
-      padding: 12px 18px;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-
-<body>
-
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQ4BZQ53"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<header>🛞 Vinayak Tyre Store</header>
-
-<div class="hero">Premium Tyres for Every Journey 🚗</div>
-
-<div class="products">
-
-<div class="card">
-  <img src="https://via.placeholder.com/250x150?text=MRF+Tyre">
-  <h3>MRF ZLX</h3>
-  <p class="price">₹4000</p>
-  <button onclick="buy('MRF ZLX')">Buy Now</button>
-</div>
-
-<div class="card">
-  <img src="https://via.placeholder.com/250x150?text=CEAT+Tyre">
-  <h3>CEAT SecuraDrive</h3>
-  <p class="price">₹3500</p>
-  <button onclick="buy('CEAT')">Buy Now</button>
-</div>
-
-<div class="card">
-  <img src="https://via.placeholder.com/250x150?text=Apollo+Tyre">
-  <h3>Apollo Alnac</h3>
-  <p class="price">₹3800</p>
-  <button onclick="buy('Apollo')">Buy Now</button>
-</div>
-
-</div>
-
-<footer style="text-align:center;color:white;">© 2026 Vinayak Tyre Store</footer>
+<div id="message"></div>
 
 <script>
-function buy(product){
-  window.location.href = "lead.html?product=" + product;
+let cards = ["A", "X", "X"];
+let positions = [0,1,2];
+let shuffling = false;
+let difficulty = 120; // speed (lower = faster)
+
+function renderCards(show = false) {
+  const game = document.getElementById("game");
+  game.innerHTML = "";
+
+  positions.forEach((pos, index) => {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerText = show ? cards[pos] : "?";
+    div.onclick = () => pickCard(index);
+    game.appendChild(div);
+  });
+}
+
+function shuffleStep() {
+  let i = Math.floor(Math.random()*3);
+  let j = Math.floor(Math.random()*3);
+  [positions[i], positions[j]] = [positions[j], positions[i]];
+}
+
+function insaneShuffle(iterations) {
+  if(iterations <= 0) {
+    shuffling = false;
+    renderCards(false);
+    return;
+  }
+
+  shuffleStep();
+  renderCards(false);
+
+  setTimeout(() => insaneShuffle(iterations - 1), difficulty);
+}
+
+function startGame() {
+  document.getElementById("message").innerText = "Memorize...";
+
+  // randomize ace start
+  cards = shuffleArray(cards);
+  positions = [0,1,2];
+
+  renderCards(true);
+
+  setTimeout(() => {
+    shuffling = true;
+    document.getElementById("message").innerText = "Shuffling...";
+
+    // gets harder each time
+    difficulty = Math.max(20, difficulty - 10);
+
+    insaneShuffle(40 + Math.floor(Math.random()*40));
+  }, 1200);
+}
+
+function pickCard(index) {
+  if(shuffling) return;
+
+  const chosen = positions[index];
+  const result = cards[chosen];
+
+  renderCards(true);
+
+  if(result === "A") {
+    document.getElementById("message").innerText = "You got lucky 😳";
+  } else {
+    document.getElementById("message").innerText = "Nope 💀";
+  }
+}
+
+function shuffleArray(arr) {
+  let a = [...arr];
+  for(let i = a.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
 }
 </script>
 
